@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePublicite extends CreateRecord
 {
     protected static string $resource = PubliciteResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return static::getResource()::getUrl('index');
+    }
 }

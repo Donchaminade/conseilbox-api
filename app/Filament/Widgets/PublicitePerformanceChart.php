@@ -14,7 +14,7 @@ class PublicitePerformanceChart extends ChartWidget
 
     protected int|string|array $columnSpan = [
         'md' => 12,
-        'xl' => 6,
+        'xl' => 8,
     ];
 
     protected function getData(): array

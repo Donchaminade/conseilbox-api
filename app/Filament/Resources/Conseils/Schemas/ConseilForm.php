@@ -16,30 +16,36 @@ class ConseilForm
         return $schema
             ->components([
                 Grid::make()
-                    ->columns(3)
+                    ->columns([
+                        'default' => 1,
+                        'md' => 3,
+                    ])
                     ->schema([
-                        Section::make('Contenu Principal')
+                        Section::make('Contenu principal')
                             ->columnSpan(2)
                             ->schema([
                                 TextInput::make('title')
                                     ->label('Titre du conseil')
-                                    ->required(),
+                                    ->required()
+                                    ->maxLength(255),
                                 Textarea::make('content')
                                     ->label('Contenu du conseil')
                                     ->required()
-                                    ->rows(10),
+                                    ->rows(8),
                                 Textarea::make('anecdote')
                                     ->label('Anecdote')
-                                    ->rows(5),
+                                    ->rows(4),
                             ]),
                         Section::make('Méta-données')
                             ->columnSpan(1)
                             ->schema([
                                 TextInput::make('author')
                                     ->label('Auteur')
-                                    ->required(),
+                                    ->required()
+                                    ->maxLength(255),
                                 TextInput::make('location')
-                                    ->label('Lieu'),
+                                    ->label('Lieu')
+                                    ->maxLength(255),
                                 Select::make('status')
                                     ->label('Statut')
                                     ->options([
@@ -50,11 +56,17 @@ class ConseilForm
                                     ->default('pending')
                                     ->required(),
                                 TextInput::make('social_link_1')
-                                    ->label('Lien social 1'),
+                                    ->label('Lien social 1')
+                                    ->url()
+                                    ->maxLength(255),
                                 TextInput::make('social_link_2')
-                                    ->label('Lien social 2'),
+                                    ->label('Lien social 2')
+                                    ->url()
+                                    ->maxLength(255),
                                 TextInput::make('social_link_3')
-                                    ->label('Lien social 3'),
+                                    ->label('Lien social 3')
+                                    ->url()
+                                    ->maxLength(255),
                             ]),
                     ]),
             ]);

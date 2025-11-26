@@ -3,8 +3,8 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Conseil;
+use Filament\Actions\Action;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
 use Filament\Widgets\TableWidget as BaseTableWidget;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -14,7 +14,7 @@ class SuggestionsTableWidget extends BaseTableWidget
 
     protected int|string|array $columnSpan = [
         'md' => 12,
-        'xl' => 6,
+        'xl' => 4,
     ];
 
     protected function getTableQuery(): Builder
