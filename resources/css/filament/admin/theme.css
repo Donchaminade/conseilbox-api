@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+@source '../../../../vendor/filament/**/*.blade.php';
+@source '../../../views/filament/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root {
+    --cb-primary: #f97316;
+    --cb-surface: #0f172a;
+    --cb-surface-alt: #111827;
+    --cb-text-muted: #94a3b8;
+    --cb-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: #05070f;
+}
+
+.fi-logo img {
+    max-height: 2.5rem;
+}
+
+.fi-sidebar {
+    background: radial-gradient(circle at top, rgba(249, 115, 22, 0.08), transparent 55%),
+        var(--cb-surface);
+    border-right: 1px solid var(--cb-border);
+}
+
+.fi-topbar {
+    border-bottom: 1px solid var(--cb-border);
+    backdrop-filter: blur(16px);
+}
+
+.fi-simple-page {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+}
+
+.fi-auth-card {
+    background: rgba(15, 23, 42, 0.85);
+    box-shadow: 0 25px 80px rgba(2, 6, 23, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    border-radius: 1.25rem;
+}
+
+.fi-auth-card input {
+    border-radius: 999px;
+}
+
+.fi-auth-card button[type='submit'] {
+    border-radius: 999px;
+    background: linear-gradient(120deg, #fb923c, #f97316);
+    box-shadow: 0 12px 30px rgba(249, 115, 22, 0.35);
+}
+
+.fi-section {
+    border: 1px solid var(--cb-border);
+    border-radius: 1.25rem;
+    background: rgba(15, 23, 42, 0.78);
+    box-shadow: 0 15px 45px rgba(2, 6, 23, 0.35);
+}
+
+.fi-stats-overview-card {
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.fi-table {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1px solid var(--cb-border);
+}
+
+/* Réduire la taille des icônes (stats + descriptions) */
+.fi-wi-stats-overview-stat-label-ctn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.fi-wi-stats-overview-stat-description svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+

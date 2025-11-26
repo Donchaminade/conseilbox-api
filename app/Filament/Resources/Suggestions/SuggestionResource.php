@@ -4,9 +4,7 @@ namespace App\Filament\Resources\Suggestions;
 
 use App\Filament\Resources\Conseils\Schemas\ConseilForm;
 use App\Filament\Resources\Conseils\Tables\ConseilsTable;
-use App\Filament\Resources\Suggestions\Pages\CreateSuggestion;
-use App\Filament\Resources\Suggestions\Pages\EditSuggestion;
-use App\Filament\Resources\Suggestions\Pages\ListSuggestions;
+use App\Filament\Resources\Suggestions\Pages;
 use App\Models\Conseil;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema; // Changed from Filament\Forms\Form
