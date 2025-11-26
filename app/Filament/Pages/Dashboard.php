@@ -16,8 +16,8 @@ class Dashboard extends BaseDashboard
     {
         return [
             OverviewStats::class,
-            PublicitePerformanceChart::class,
             SuggestionsTableWidget::class,
+            PublicitePerformanceChart::class,
             QuickActions::class,
         ];
     }

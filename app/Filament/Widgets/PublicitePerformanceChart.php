@@ -12,10 +12,7 @@ class PublicitePerformanceChart extends ChartWidget
 {
     protected ?string $heading = 'Engagement mensuel';
 
-    protected int|string|array $columnSpan = [
-        'md' => 12,
-        'xl' => 8,
-    ];
+    protected int|string|array $columnSpan = 'full';
 
     protected function getData(): array
     {

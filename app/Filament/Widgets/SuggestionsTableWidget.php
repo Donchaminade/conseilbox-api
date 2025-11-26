@@ -12,10 +12,7 @@ class SuggestionsTableWidget extends BaseTableWidget
 {
     protected static ?string $heading = 'Suggestions à traiter';
 
-    protected int|string|array $columnSpan = [
-        'md' => 12,
-        'xl' => 4,
-    ];
+    protected int|string|array $columnSpan = 'full';
 
     protected function getTableQuery(): Builder
     {

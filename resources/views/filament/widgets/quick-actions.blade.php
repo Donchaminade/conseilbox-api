@@ -4,7 +4,7 @@
             <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Actions rapides</p>
             <span class="text-xs text-slate-500">Accès direct aux tâches critiques</span>
         </div>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 justify-start md:justify-end">
             @foreach ($actions as $action)
                 <a
                     href="{{ $action['url'] }}"
