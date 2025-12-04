@@ -10,28 +10,38 @@ class Publicite extends Model
 {
     use HasFactory;
 
-    /**
-     * @var list<string>
-     */
     protected $fillable = [
         'title',
         'content',
         'image_url',
         'target_url',
         'is_active',
+        'start_date',
+        'end_date',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
     ];
 
     /**
-     * @var array<string, string>
+     * Scope a query to only include active publicites.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    protected $casts = [
-        'is_active' => 'boolean',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
     public function scopeActive(Builder $query): Builder
     {
-        return $query->where('is_active', true);
+        return $query->where('is_active', true)
+            ->where(function (Builder $query) {
+                $query->whereNull('start_date')
+                    ->orWhere('start_date', '<=', now());
+            })
+            ->where(function (Builder $query) {
+                $query->whereNull('end_date')
+                    ->orWhere('end_date', '>=', now());
+            });
     }
 }

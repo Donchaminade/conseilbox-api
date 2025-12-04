@@ -18,9 +18,10 @@ class PubliciteController extends Controller
 
         $query = Publicite::query();
 
-        $onlyActive = array_key_exists('only_active', $validated)
-            ? (bool) $validated['only_active']
-            : true;
+        // Récupérer la valeur de 'only_active' de manière sécurisée
+        // S'assurer que 'only_active' est traité comme un booléen et qu'il n'est pas un tableau.
+        $onlyActive = filter_var($request->input('only_active', true), FILTER_VALIDATE_BOOLEAN);
+
 
         if ($onlyActive) {
             $query->active();

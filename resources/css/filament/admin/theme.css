@@ -22,7 +22,7 @@ body {
 }
 
 .fi-logo img {
-    max-height: 3.25rem;
+    max-height: 6.25rem;
 }
 
 .fi-sidebar {
@@ -33,7 +33,7 @@ body {
 
 .fi-topbar {
     border-bottom: 1px solid var(--cb-border);
-    backdrop-filter: blur(16px);
+    filter: blur(16px);
 }
 
 .fi-simple-page {
@@ -74,6 +74,15 @@ body {
     border-radius: 1.25rem;
     overflow: hidden;
     border: 1px solid var(--cb-border);
+}
+
+/* Formulaires plus larges pour une meilleure lisibilité */
+.fi-main > .fi-page {
+    max-width: 80rem;
+}
+
+.fi-fo-form {
+    max-width: 56rem;
 }
 
 /* Réduire la taille des icônes (stats + descriptions) */
