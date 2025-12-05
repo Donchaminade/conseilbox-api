@@ -7,10 +7,14 @@ use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn; // Added for image preview
 use Filament\Tables\Columns\TextColumn;
-use Filament\Actions\Action; // Corrected namespace for row actions
+use Filament\Actions\Action;
 use Filament\Widgets\TableWidget as BaseTableWidget;
 use Illuminate\Database\Eloquent\Builder;
-use Carbon\Carbon; // Added for date formatting
+use Carbon\Carbon;
+use Filament\Infolists\Components\Section; // Added for Infolist styling
+use Filament\Infolists\Components\TextEntry; // Added for Infolist display
+use Filament\Infolists\Components\ImageEntry; // Added for Infolist image display
+use Filament\Infolists\Infolist; // Added for Infolist modal
 
 class PublicitesTableWidget extends BaseTableWidget
 {
@@ -30,7 +34,7 @@ class PublicitesTableWidget extends BaseTableWidget
             ImageColumn::make('image_url')
                 ->label('Image')
                 ->square()
-                ->defaultImageUrl(url('/images/logodark.png')), // Fallback image
+                ->defaultImageUrl(url('/images/logodark.png')),
             TextColumn::make('title')
                 ->label('Titre')
                 ->searchable()
@@ -38,7 +42,7 @@ class PublicitesTableWidget extends BaseTableWidget
             TextColumn::make('content')
                 ->label('Aperçu du contenu')
                 ->wrap()
-                ->limit(50), // Show a snippet of the content
+                ->limit(50),
             TextColumn::make('target_url')
                 ->label('URL Cible')
                 ->url(fn (Publicite $record): string => $record->target_url)
@@ -47,11 +51,11 @@ class PublicitesTableWidget extends BaseTableWidget
                 ->placeholder('Pas d\'URL cible'),
             TextColumn::make('start_date')
                 ->label('Début')
-                ->date('d/m/Y') // Format the date
+                ->date('d/m/Y')
                 ->sortable(),
             TextColumn::make('end_date')
                 ->label('Fin')
-                ->date('d/m/Y') // Format the date
+                ->date('d/m/Y')
                 ->sortable(),
             IconColumn::make('is_active')
                 ->label('Active')
@@ -67,10 +71,17 @@ class PublicitesTableWidget extends BaseTableWidget
     protected function getTableActions(): array
     {
         return [
-            Action::make('view_edit')
-                ->label('Voir/Modifier')
-                ->url(fn (Publicite $record): string => \App\Filament\Resources\Publicites\PubliciteResource::getUrl('edit', ['record' => $record]))
-                ->icon('heroicon-o-pencil'),
+            Action::make('preview')
+                ->label('Prévisualiser')
+                ->icon('heroicon-o-eye')
+                ->color('info')
+                ->modalHeading(fn (Publicite $record) => 'Prévisualisation : ' . $record->title)
+                ->modalSubmitAction(false) // Disable submit button in modal
+                ->modalCancelActionLabel('Fermer') // Change cancel button label
+                ->modalContent(fn (Publicite $record) => view('filament.widgets.publicite-preview-modal', [
+                    'record' => $record,
+                ])),
         ];
     }
 }
+
