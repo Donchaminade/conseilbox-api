@@ -10,7 +10,7 @@ class Publicite extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    public $fillable = [
         'title',
         'content',
         'image_url',
@@ -20,7 +20,7 @@ class Publicite extends Model
         'end_date',
     ];
 
-    protected $casts = [
+    public $casts = [
         'is_active' => 'boolean',
         'start_date' => 'datetime',
         'end_date' => 'datetime',

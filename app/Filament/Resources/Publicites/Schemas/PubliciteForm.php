@@ -39,6 +39,7 @@ class PubliciteForm
                                     ->label('Image')
                                     ->image()
                                     ->directory('publicites')
+                                    ->disk('public')
                                     ->imageEditor()
                                     ->downloadable()
                                     ->helperText("Choisis une image depuis ta galerie/appareil. Elle sera stockée dans l’espace de stockage interne de l’application."),
