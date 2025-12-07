@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(\App\Livewire\Login::class)
             ->brandName('ConseilBox')
             ->brandLogo(asset('images/logodark.png'))
             ->favicon(asset('images/logodark.png'))
