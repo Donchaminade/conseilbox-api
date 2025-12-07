@@ -1,4 +1,4 @@
-<div class="fi-simple-layout">
+<div class="fi-simple-layout" style="padding-top: 5rem;">
     <div class="fi-simple-main-ctn">
         <div class="fi-simple-card">
             <h2 class="fi-card-header-heading text-xl font-bold tracking-tight">

@@ -36,6 +36,6 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.login')->layout('filament-panels::components.layout.simple');
+        return view('livewire.login')->layout('vendor.filament-panels.components.layout.simple');
     }
 }
